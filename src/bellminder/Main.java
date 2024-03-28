@@ -50,10 +50,11 @@ public class Main extends javax.swing.JFrame {
     boolean isStart = true;
     
     public Main() {
-        setUndecorated(true);
+        setUndecorated(true); //Remove top bar on JFrame
         initComponents();
         setOpacity(0.9f);
         
+        //Set the location on the top-right corner.
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
@@ -66,7 +67,7 @@ public class Main extends javax.swing.JFrame {
         resetBtn.setEnabled(false);
         
         //JFrame Icon
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/bell.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/bell32.png")));
         
         //System Tray
         if(SystemTray.isSupported()==true){
@@ -74,7 +75,7 @@ public class Main extends javax.swing.JFrame {
         }
         
         SystemTray systemTray = SystemTray.getSystemTray();
-        TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/bell.png")));
+        TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/bell16.png")));
         PopupMenu popMenu = new PopupMenu();
         
         MenuItem show = new MenuItem("Show");
@@ -400,7 +401,6 @@ public class Main extends javax.swing.JFrame {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {  
-   
                 //Stop the timer, if Stop button is clicked.
                 if(isStart == false){
                     timer.cancel();
@@ -413,13 +413,13 @@ public class Main extends javax.swing.JFrame {
                     secVal=1;
                     secTxt.setText("00");
                     int minCount =minVal++;
-                    timeExpiration--; //Reduce the number of duration every minute.                
+                    timeExpiration--; //Reduce the number of duration every minute until it becomes 0.                
                     
-                    //FOR MINUTES FORMAT CONDITION.
+                    //FOR MINUTES FORMAT CONDITION(e.g 00:20:00).
                     //If duration set by the user is less than or equal 60 min
                     if(duration<=60){
                         
-                        //If minutes(e.g. 00:20:00) is now exceeds time duration(e.g. 20min, reset all the text(e.g 00) and count again.
+                        //If time is expire (e.g 0) then reset all the value
                         if(timeExpiration==0){
                             sound();
                             minCount=0;
@@ -431,9 +431,11 @@ public class Main extends javax.swing.JFrame {
                         }
                     }
                     
-                    //FOR HOURLY FORMAT CONDITION.
+                    //FOR HOURLY FORMAT CONDITION(e.g 01:30:00).
                     //If duration set by the user is greater than 60 min.
                     if(duration>60){
+                        
+                        //If time is expire (e.g 0) then reset all the value
                         if(timeExpiration==0){
                             sound();
                             timeExpiration=duration;
@@ -457,12 +459,12 @@ public class Main extends javax.swing.JFrame {
                             minVal=1;
                             minTxt.setText(String.valueOf(formatter.format(minCount)));
                         }
-                        //Condition for minutes.(If minutes is not yet exceeds 60min. Add 1 on the minute.)
+                        //Condition for minutes.
+                        //If minutes is not yet exceeds 60min. Add 1 on the minute.
                         else {
                              minTxt.setText(String.valueOf(formatter.format(minCount)));
                         }
                     }
-                    
                 } else {
                    secTxt.setText(String.valueOf(formatter.format(secCount)));
                 }   

@@ -19,9 +19,7 @@
 
 ![Product Name Screen Shot][product-screenshot]
 
-This project will remind you and make a sound every specific time.
-
-Did you know that it is recommendable to do a stand up every 20min to
+This bell app will remind you and make a sound every specific time (e.g., 20 minutes). It might help you in some cases, like standing every 20 minutes after a long set or setting a time limit for every task you do.
 
 ### Built With
 
@@ -47,15 +45,18 @@ Steps on how to install the project locally:
    ```sh
    git clone https://github.com/wilken311/bellreminder.git
    ```
+2. To run the excutable app, go to 'dist' folder and double click `bellreminder.jar`. Note: You must have Java installed on your computer.
+
+3. To run the app on windows start up, follow this [Link](https://stackoverflow.com/questions/5953525/run-java-application-at-windows-startup).
 
 ## Roadmap
 
 - [x] Set time in minutes (Default 20min)
+- [x] Seconds, Minutes and Hour Countdown
 - [x] Bell Sound
-- [x] Seconds, Minutes and Hour
-- [x] Opacity
-- [x] System Tray (Show & Exit)
 - [x] Start, Stop, Reset Time
+- [x] System Tray (Show & Exit)
+- [x] Opacity
 - [x] Hide the app
 
 <!-- CONTRIBUTING -->
@@ -87,5 +88,5 @@ Credits to the following:
 
 - [Netbeans](https://netbeans.apache.org/front/main/index.html)
 - [Java](https://www.oracle.com/ph/java/technologies/downloads/)
-
-[product-screenshot]: /img/screenshot.jpg
+- [icons8](https://icons8.com/)
+- [flaticon](https://www.flaticon.com)
