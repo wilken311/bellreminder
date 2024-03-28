@@ -42,14 +42,12 @@ Developer must have the following.
 Steps on how to install the project locally:
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/wilken311/bellreminder.git
    ```
-1. To run the excutable app, go to 'dist' folder and double click `bellreminder.jar`. Note: You must have Java installed on your computer.
-   ```sh
-   git clone https://github.com/wilken311/bellreminder.git
-   ```
-1. To run the excutable app, go to 'dist' folder and double click `bellreminder.jar`. Note: You must have Java installed on your computer.
+
+2. To run the excutable app, go to 'dist' folder and double click `bellreminder.jar`. Note: You must have Java installed on your computer.
 
    ```sh
    java version "21.0.2" 2024-01-16 LTS
@@ -57,7 +55,7 @@ Steps on how to install the project locally:
    Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
    ```
 
-1. To run the app on windows start up, follow this [Link](https://stackoverflow.com/questions/5953525/run-java-application-at-windows-startup).
+3. To run the app on windows start up, follow this [Link](https://stackoverflow.com/questions/5953525/run-java-application-at-windows-startup).
 
 ## Roadmap
 
