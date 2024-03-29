@@ -48,6 +48,7 @@ public class Main extends javax.swing.JFrame {
     int duration = 20; //20 Minutes default
     int timeExpiration = duration;
     boolean isStart = true;
+    boolean isView = true;
     
     public Main() {
         setUndecorated(true); //Remove top bar on JFrame
@@ -78,7 +79,28 @@ public class Main extends javax.swing.JFrame {
         TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/bell16.png")));
         PopupMenu popMenu = new PopupMenu();
         
-        MenuItem show = new MenuItem("Show");
+       
+        MenuItem show = new MenuItem("On/Off Qoutes");
+        show.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(isView==true) {
+                    int input = JOptionPane.showConfirmDialog(null, "Do you want to turn off qoutes?");
+                    if(input==0){
+                      isView=false;
+                    }
+                  
+                } else {
+                    int input = JOptionPane.showConfirmDialog(null, "Do you want to turn on qoutes?");
+                    if(input==0){
+                      isView=true;
+                    }
+                  
+                }
+             }
+        });
+        
+        MenuItem qoute = new MenuItem("Show");
         show.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -94,6 +116,7 @@ public class Main extends javax.swing.JFrame {
              }
         });
         
+        popMenu.add(qoute);
         popMenu.add(show);
         popMenu.add(exit);
         
@@ -378,9 +401,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_setTimeTxtMouseClicked
 
     private void DeveloperMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeveloperMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeveloperMouseClicked
 
+    }//GEN-LAST:event_DeveloperMouseClicked
+    
+    public static void viewQoutes (boolean view){
+          if(view==true){
+            Qoutes qts = new Qoutes();
+            qts.setVisible(true);
+          }
+    }
+  
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         positionX = evt.getX();
         positionY = evt.getY();
@@ -422,6 +452,7 @@ public class Main extends javax.swing.JFrame {
                         //If time is expire (e.g 0) then reset all the value
                         if(timeExpiration==0){
                             sound();
+                            viewQoutes(isView);
                             minCount=0;
                             minVal=1;
                             minTxt.setText(String.valueOf(formatter.format(minCount)));
@@ -438,6 +469,7 @@ public class Main extends javax.swing.JFrame {
                         //If time is expire (e.g 0) then reset all the value
                         if(timeExpiration==0){
                             sound();
+                            viewQoutes(isView);
                             timeExpiration=duration;
                             //Reset Minute
                             minCount=0;

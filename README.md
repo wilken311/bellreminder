@@ -19,7 +19,7 @@
 
 ![Product Name Screen Shot][product-screenshot]
 
-This bell app will remind you and make a sound every specific time (e.g., 20 minutes). It might help you in some cases, like standing every 20 minutes after a long set or setting a time limit for every task you do.
+This bell app will remind you and make a sound every specific time (e.g., 20 minutes). It might help you in some cases, like standing every 20 minutes after a long set or setting a time limit for every task you do. In addition, it comes with motivation qoutes every time the bell ring.
 
 ### Built With
 
@@ -66,6 +66,8 @@ Steps on how to install the project locally:
 - [x] System Tray (Show & Exit)
 - [x] Opacity
 - [x] Hide the app
+- [x] Qoutes (Online and Local)
+- [x] Turn off/on qoutes
 
 <!-- CONTRIBUTING -->
 
@@ -98,5 +100,8 @@ Credits to the following:
 - [Java](https://www.oracle.com/ph/java/technologies/downloads/)
 - [icons8](https://icons8.com/)
 - [flaticon](https://www.flaticon.com)
+- [flaticon](https://www.flaticon.com)
+- [stoic-quote](https://stoic.tekloon.net/stoic-quote)
+- [zenquotes](https://zenquotes.io/api/quotes/)
 
   [product-screenshot]: /img/screenshot.jpg
