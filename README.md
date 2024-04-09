@@ -100,7 +100,6 @@ Credits to the following:
 - [Java](https://www.oracle.com/ph/java/technologies/downloads/)
 - [icons8](https://icons8.com/)
 - [flaticon](https://www.flaticon.com)
-- [flaticon](https://www.flaticon.com)
 - [stoic-quote](https://stoic.tekloon.net/stoic-quote)
 - [zenquotes](https://zenquotes.io/api/quotes/)
 

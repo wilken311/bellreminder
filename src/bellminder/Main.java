@@ -80,8 +80,8 @@ public class Main extends javax.swing.JFrame {
         PopupMenu popMenu = new PopupMenu();
         
        
-        MenuItem show = new MenuItem("On/Off Qoutes");
-        show.addActionListener(new ActionListener(){
+        MenuItem qoutes = new MenuItem("On/Off Qoutes");
+        qoutes.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 if(isView==true) {
@@ -100,7 +100,7 @@ public class Main extends javax.swing.JFrame {
              }
         });
         
-        MenuItem qoute = new MenuItem("Show");
+        MenuItem show = new MenuItem("Show");
         show.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -116,7 +116,7 @@ public class Main extends javax.swing.JFrame {
              }
         });
         
-        popMenu.add(qoute);
+        popMenu.add(qoutes);
         popMenu.add(show);
         popMenu.add(exit);
         

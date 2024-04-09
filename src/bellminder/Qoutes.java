@@ -41,7 +41,7 @@ public class Qoutes extends javax.swing.JFrame {
         initComponents();
         setOpacity(0.9f);
         setExtendedState(MAXIMIZED_BOTH);
-        
+       
         Boolean onlineQouteStatus;
         try {
             onlineQouteStatus = onlineQouteGenerator();
@@ -49,7 +49,7 @@ public class Qoutes extends javax.swing.JFrame {
                 localQouteGenerator();
             }
         } catch (IOException ex) {
-//            Logger.getLogger(Qoutes.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Qoutes.class.getName()).log(Level.SEVERE, null, ex);
             localQouteGenerator();
         } 
         
