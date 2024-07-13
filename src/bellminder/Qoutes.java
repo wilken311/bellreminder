@@ -94,8 +94,8 @@ public class Qoutes extends javax.swing.JFrame {
     public Boolean onlineQouteGenerator() throws IOException{
         Boolean status = false;
         try {   
-            //String api1="https://zenquotes.io/api/quotes/";
-            String api2="https://stoic.tekloon.net/stoic-quote";
+            //String api1="https://zenquotes.io/api/quotes/"; 
+            String api2="https://stoic.tekloon.net/stoic-q1uote"; 
             
             URL url = new URL(api2);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -104,12 +104,27 @@ public class Qoutes extends javax.swing.JFrame {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(responseStream);
             if(connection.getResponseCode()==200){
-                status = true;
-                String qoute = String.valueOf(root.get("quote")).replace("\"", "");
-                String author = String.valueOf(root.get("author")).replace("\"", "");
-                String word = String.format("<html>"+qoute+"<br/><div style=\"text-align: center;  text-justify: inter-word; font-size: 14px;\">~"+author+"</div></html>");
-                
-                qoutelbl.setText(String.format("<html><body style=\"text-align: center;  text-justify: inter-word;\">%s</body></html>",word));
+               
+                JsonNode dataNode = root.get("data");
+                if (dataNode != null) { // Ensure the "data" field exists
+                    status = true;
+                    JsonNode quoteNode = dataNode.get("quote");
+                    JsonNode authorNode = dataNode.get("author");
+                    if (quoteNode != null && authorNode != null) { // Ensure the "quote" field exists
+                        status = true;
+                        //System.out.println("qoute returns not null");
+                        String quote = quoteNode.asText(); // Convert the quote to String
+                        String author = authorNode.asText(); // Convert the author to String
+                        String word = String.format("<html>"+String.valueOf(quote)+"<br/><div style=\"text-align: center;  text-justify: inter-word; font-size: 14px;\">~"+String.valueOf(author)+"</div></html>");
+                        qoutelbl.setText(String.format("<html><body style=\"text-align: center;  text-justify: inter-word;\">%s</body></html>",word));
+                    } else {
+                         //System.out.println("qoute returns null");
+                         status = false;
+                    }
+                } else {
+                        //System.out.println("qoute returns null");
+                        status = false;
+                }
             }  
         } catch (MalformedURLException ex) {
             Logger.getLogger(Qoutes.class.getName()).log(Level.SEVERE, null, ex);
